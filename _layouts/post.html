@@ -1,0 +1,89 @@
+---
+layout: default
+---
+{% assign compDate = 'now' | date: "%Y%m%d" | plus: 2 %}
+{% assign date = page.date | date: "%Y%m%d" | plus: 0 %}
+
+{% assign open = true %}
+{% assign closed = false %}
+{% if date < compDate %}
+	{% assign open = false %}
+	{% assign closed = true %}
+{% endif %}
+
+ <div class="container">
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <header>
+        <h1>{{page.location}}</h1>
+        <h2>{{page.days}}</h2>
+        <!-- <img src="{{site.baseurl}}/images/{{page.image}}"> -->
+        <div class="light-link">
+            <a href="{{site.baseurl}}/">⟵ Indietro</a>
+        </div>
+    </header>
+
+    <div class="main-text">
+
+	    {% assign ontheroad = true %}
+	    {% if page.tags contains 'ritirone' %}
+	    	{% assign ontheroad = false %}
+				<p>Questo è il <strong>ritirone</strong> dell'Amore Chiama! 💪
+	    {% endif %}
+
+	    {% if ontheroad %}
+	    <p><strong>L’amore chiama!</strong> è una esperienza di due giorni per partire alla scoperta della tua vocazione, per incamminarti deciso verso la gioia piena, equipaggiandoti di tutto l’occorrente per questo avventuroso viaggio, il più importante della vita!</p>
+	    {% endif %}
+
+	{% if open %}
+        <div class="centered-button">
+            <a href="#iscrizioni">
+            <img src="{{site.baseurl}}/images/iscriviti.jpg">
+            </a>
+        </div>
+	{% endif %}
+	
+	{% if closed %}
+        <div class="centered-button light-link">
+        <p></p>
+        <p></p>
+            ISCRIZIONI CHIUSE<br>
+            <a href="{{site.baseurl}}/">Vedi tutte le date</a>
+        </div>
+	{% endif %}
+
+  <p></p>
+	{% include youtube.html url="https://www.youtube.com/embed/SeBKQfUwoIw"%}
+
+	{% if content == '' %}
+				<p>Tutte le informazioni relative a questa data saranno online prossimamente 👍</p>
+  {% else %}
+        {{content}}
+  {% endif %}
+
+	{% if open %}
+								<div id="iscrizioni"></div>
+								{% include form.html location=page.location %}
+	{% else %}
+        <div class="centered-button light-link">
+            ISCRIZIONI CHIUSE<br>
+        </div>
+	{% endif %}
+
+    <footer>
+        <p></p>
+        <p></p>
+        <div class="centered-button light-link">
+            <a href="{{site.baseurl}}/">Tutte le date</a>
+        </div>
+    </footer>
+  </div>
+
+</div>
+

@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<!--
+<h1>L'AMORE CHIAMA!</h1> 
+<h3>Pagina in costruzione</h3>
+<h3>Troverai tutte le informazioni online ed i moduli di iscrizione a partire dal 16 Ottobre</h3>>
+ -->
+ <header>
+	<img src="{{site.baseurl}}/images/amore-chiama-tour-min.jpg" alt="L'Amore Chiama! TOUR ::: 5pani2pesci">
+ </header>
+
+ <div class="container">
+
+	<p></p>
+	<p>Ecco i prossimi eventi. <i>Clicca sulla data per iscriverti!</i></p>
+	<p></p>
+	<p></p>
+    
+    <div class="list-dates">
+        {% for post in site.posts reversed %}
+	
+
+  {% assign attr = "" %}
+	{% if post.tags contains 'ritirone' %}
+				{% assign attr = "highlight" %}
+  {% endif %}
+	<div class="el-dates {{attr}}">
+					<a href="{{site.baseurl}}{{post.url}}">
+				      <span class="days">{{ post.days }}</span>
+              <span class="sep">&bull;</span>
+              <span class="location">{{ post.location }}</span>
+				  </a>
+	    {%if post.tags contains "famiglie" %}
+            <span class="highlight tag alizarin">sposi</span>
+	    {% endif %}
+   </div>
+
+        {% endfor %}
+    </div>
+
+	<p></p>
+	<p></p>
+	<p></p>
+	<p>
+	Vuoi proporre una nuova data?
+	<div><a href="{{site.baseurl}}/scrivici">Scrivici un messaggio 👍</a></div>
+	</p>
+
+    <div class="main-text">
+        {{content}}
+    </div>
+
+</div>
+
