@@ -1,7 +1,25 @@
-title: Jekyll Netlify CMS
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  This is the basic Jekyll starter site, with Netlify CMS integrated and using
-  Netlify Identity for authentication.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+---
+future: true
+title: "L'Amore Chiama! TOUR | 5pani2pesci"
+description: "L'Amore Chiama! Incontri sull'affettività e il discernimento vocazionale."
+url_5pani2pesci: https://5p2p.it
+url: https://tour.5p2p.it
+baseurl: ''
+timezone: UTC
+permalink: "/:title:year/"
+collections:
+  pages:
+    title: Pages
+    output: true
+    permalink: "/:title/"
+  posts:
+    title: Posts
+    output: true
+defaults:
+- scope:
+    path: ''
+  values:
+    layout: post
+exclude: [.git]
+# plugins:
+#   - jekyll-redirect-from
